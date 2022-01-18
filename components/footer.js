@@ -12,8 +12,34 @@ import styles from "./style.module.css"
 export default function Footer() {
   return (
     <footer className={styles.footer}>
+    <div className={styles.bajo}>
+      <nav className={styles.navegatorFooter}>
+        <ul className={styles.listaInfo}>
+            <li className={styles.info}>
+                <Link href="">
+                    <a>About</a>
+                </Link>
+            </li>
+            <li className={styles.info}>
+                <Link href="">
+                    <a>Terms</a>
+                </Link>
+            </li>
+            <li className={styles.info}>
+                <Link href="">
+                    <a>Privacy Policy</a>
+                </Link>
+            </li>
+            <li className={styles.info}>
+                <Link href="">
+                    <a>FAQ</a>
+                </Link>
+            </li>
+        </ul>
+      </nav>
+      <nav className={styles.navegatorIconos}>
       <ul className={styles.listaIconos}>
-      <li className={styles.iconos}>
+        <li className={styles.iconos}>
             <Link href="https://www.instagram.com/turismo_aytocuenca/">
                 <Image 
                     src={instagram}
@@ -40,9 +66,13 @@ export default function Footer() {
                     src={youtube}
                 />
             </Link>  
-        </li>
-        
+        </li> 
       </ul>
+    </nav>
+        <div className={styles.politica}>
+            <p>Copyright © 2022 Hector Plinio Productions. All Rights Reserved.</p>
+        </div>
+    </div>
     </footer>
   )
 }
