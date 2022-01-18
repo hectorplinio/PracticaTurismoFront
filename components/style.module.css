@@ -1,0 +1,11 @@
+.iconos{
+    width:6%;
+    margin: auto;
+}
+.footer{
+    
+}
+.listaIconos{
+    display: flex;
+    margin: 3em;
+}
