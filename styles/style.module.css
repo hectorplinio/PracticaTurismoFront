@@ -1,0 +1,54 @@
+.cajaCentral{
+    background-image: url('../public/cuenca_2.jpeg');
+    background-repeat: no-repeat;
+    background-position: center center !important;
+    background-attachment: scroll !important;
+    -webkit-background-size: cover !important;
+    display: flex;
+    flex-direction: column;
+    height: 90em;
+    margin: 0 auto;
+}
+.cajaSuperior{
+    width: 55%;
+    margin: 4em auto;
+    height: 5em;
+    text-align: center;
+    align-items: center;
+    padding-top: 1.5em;
+    font-family: Helvetica;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 20px;
+    color: cornsilk;
+}
+.cajaInferior{
+    background-color: rgb(250, 235, 216,0.3);
+    color: antiquewhite;
+    width: 40%;
+    margin: 0 auto;
+    height: 5em;
+    text-align: center;
+    align-items: center;
+    padding-top: 2em;
+    border-radius: 2em;
+}
+.cajaTriple{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    height: 22em;
+}
+.cajaRestaurant{
+    background-color: antiquewhite;
+    width: 18em;
+    margin: 0 auto;
+    height: 100%;
+    border-radius: 1em;
+}
+.imagenes{
+    width: 18em;
+    height: 11em;
+    border-top-right-radius: 1em;
+    border-top-left-radius: 1em; 
+}
