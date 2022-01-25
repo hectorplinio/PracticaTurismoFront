@@ -6,7 +6,7 @@
     -webkit-background-size: cover !important;
     display: flex;
     flex-direction: column;
-    height: 90em;
+    height: 124em;
     margin: 0 auto;
 }
 .cajaSuperior{
@@ -37,7 +37,7 @@
 .cajaTriple{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    height: 22em;
+    grid-gap: 50px;
 }
 .cajaRestaurant{
     background-color: antiquewhite;
@@ -51,4 +51,14 @@
     height: 11em;
     border-top-right-radius: 1em;
     border-top-left-radius: 1em; 
+}
+.cuadro{
+    margin: 1em;
+}
+.buttonView{
+    background-color: burlywood;
+    font-size: 26px;
+    padding: 0.152em;
+    margin: 1em 4em 3em;
+    border-radius: 0.2em;
 }

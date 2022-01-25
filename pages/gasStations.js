@@ -3,33 +3,16 @@ import styles from "../styles/style.module.css"
 import React, { useEffect, useState } from 'react';
 import Link from "next/link"
 import { useRouter } from 'next/router';
+function fecha(date){
+    return new Date(date).toLocaleString();
+  }
 
-function stars($avg){
-  var $resta = 0;
-  var $fila = "";
-  var $fila2 = "";
-  const router = useRouter();
-  const {id} = router.query;
-
-    console.log($avg);
-    $avg=parseInt($avg);
-    $resta = 10 - $avg;
-    for(var i = $avg; i>0; i--){
-      $fila+=("★");
-    }
-    for(var i = $resta; i>0; i--){
-      $fila2+=("✩");
-
-    }
-    return($fila+$fila2);
-  
-}
 
 export default function PageRestaurants () {
   const [items, setItems] = useState([]);
   
     useEffect(() => {
-      fetch('http://turismo:8081/rest/restaurants')
+      fetch('http://turismo:8081/rest/gasStations')
         .then(response => response.json())
         .then(json => setItems(json))
           .catch(error=>alert("Error"+error.message))
@@ -39,23 +22,25 @@ export default function PageRestaurants () {
     <Layout>
       <div className={styles.cajaCentral}>
         <div className={styles.cajaSuperior}>
-          <h1>Restaurants</h1>
+          <h1>Gas Stations</h1>
         </div>
         <div className={styles.cajaTriple}>
             {items.map((item, index) => {
+                console.log(item);
                 return (
+                    
                   <div className={styles.cajaRestaurant}>
                     <ul key={index}>
                     <li  className={styles.cuadro}>
-                    <img src={(item['image_url'])} className={styles.imagenes}></img>
-                    <br></br>Name: {(item['name'])}
+                    <br></br>Name: {(item['label'])}
                     <br></br>Address: {item['address']}
-                    <br></br>ReviewAverage: {stars(item['reviewAverage'])}
+                    <br></br>Latitude: {(item['latitude'])}
                     {/* {item['reviewAverage']} */}
-                    <br></br>Num reviews: {item['numReviews']} </li>
-                    <Link href={{ pathname:'/reviews',query: { id: item['id']}}} >
+                    <br></br>Longitude: {item['longitude']} 
+                    <br></br>Date Created: {fecha(item['created_at']['date'])}</li>
+                    {/* <Link href={{ pathname:'/reviews',query: { id: item['id']}}} >
                       <a className={styles.buttonView}>View  </a>
-                    </Link>
+                    </Link> */}
                     </ul>
                 </div>
                 )

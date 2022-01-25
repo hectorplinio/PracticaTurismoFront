@@ -25,6 +25,11 @@ export default function Header() {
                   </Link>
                 </li>
                 <li className={styles.liNav}>
+                  <Link href="/videos">
+                    <a>Videos</a>
+                  </Link>
+                </li>
+                <li className={styles.liNav}>
                   <Link href="/map">
                     <a>Map</a>
                   </Link>
