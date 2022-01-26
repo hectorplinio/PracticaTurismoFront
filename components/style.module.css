@@ -113,3 +113,17 @@
     margin-left: 3em;
 
 }
+.iconoWeather{
+    width: 2em;
+    height: 2em;
+}
+.ventanaClima{
+    float: right;
+    margin-top: 27em;
+    margin-right: 2em;
+    width: 6em;
+    background-color: rgb(250, 235, 215,0.7);
+    text-align: center;
+    align-items: center;
+    border-radius: 7px;
+}

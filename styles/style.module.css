@@ -6,8 +6,11 @@
     -webkit-background-size: cover !important;
     display: flex;
     flex-direction: column;
-    height: 124em;
+    height: 60em;
+    overflow-x: hidden;
     margin: 0 auto;
+    overflow-y: auto;
+    padding-bottom: 5em;
 }
 .cajaSuperior{
     width: 55%;
@@ -33,6 +36,7 @@
     align-items: center;
     padding-top: 2em;
     border-radius: 2em;
+    margin-bottom: 3em;
 }
 .cajaTriple{
     display: grid;
@@ -61,4 +65,22 @@
     padding: 0.152em;
     margin: 1em 4em 3em;
     border-radius: 0.2em;
+}
+.iconoYoutube{
+    width: 3em;
+}
+.buttonView{
+    background-color: #ddc9b8;
+    width: 7em;
+    border-radius: 8px;
+    height: 2em;
+   margin: 0em 0em 3em 5em;
+}
+.buttonNew{
+    background-color: #ddc9b8;
+    width: 7em;
+    border-radius: 8px;
+    height: 2em;
+    margin-left: 4.5em;
+    margin-top: 2em;
 }

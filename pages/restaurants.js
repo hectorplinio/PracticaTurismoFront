@@ -53,9 +53,9 @@ export default function PageRestaurants () {
                     <br></br>ReviewAverage: {stars(item['reviewAverage'])}
                     {/* {item['reviewAverage']} */}
                     <br></br>Num reviews: {item['numReviews']} </li>
-                    <Link href={{ pathname:'/reviews',query: { id: item['id']}}} >
-                      <a className={styles.buttonView}>View  </a>
-                    </Link>
+                    <button className={styles.buttonNew}><Link href={{ pathname:'/reviews',query: { id: item['id']}}} >
+                      <a >View  </a>
+                    </Link></button>
                     </ul>
                 </div>
                 )
