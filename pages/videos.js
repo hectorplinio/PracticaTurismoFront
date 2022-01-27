@@ -33,11 +33,15 @@ export default function PageRestaurants() {
               <div className={styles.cajaRestaurant}>
                 <ul key={index}>
                   <li className={styles.cuadro}>
-                    <div className={styles.iconoYoutube}>
-                      <Link href={item["url"]} target="_blank" className={styles.iconoYoutube}>
-                        <Image src={youtube} />
-                      </Link>
-                    </div>
+                    <Link href={item["url"]}>
+                      <a target="_blank">
+                        <img
+                          src={item["img_url"]}
+                          layout="fill"
+                          className={styles.imagenes}
+                        />
+                      </a>
+                    </Link>
                     <br></br>Title: {item["title"]}
                     <br></br>Description: {item["description"]}
                     <br></br>Date Updated: {fecha(item["updated_at"]["date"])}

@@ -17,6 +17,7 @@ export default function Header() {
   const weather = {
     main: items.main,
     icon: items.icon,
+    celsius : items.celsius,
   };
 
   return (
@@ -52,7 +53,7 @@ export default function Header() {
           </ul>
         </nav>
         <div className={styles.ventanaClima}>
-          <h1>Main: {weather["main"]}</h1> 
+          <h1 className={styles.tituloCelsius}>{weather["celsius"]} C</h1> 
           <div className={{ width: "30%", height: "30%" }}>
             <img
               src={

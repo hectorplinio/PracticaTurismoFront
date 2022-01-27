@@ -3,7 +3,8 @@ module.exports = {
   images: {
     domains: [
       'localhost:3000',
-      'openweathermap.org'
+      'openweathermap.org',
+      'i4.ytimg.com'
     ],
   },
 }
