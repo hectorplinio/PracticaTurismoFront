@@ -15,6 +15,7 @@ export default function Page() {
       .then((json) => setItems(json))
       .catch((error) => alert("Error" + error.message));
   }, []);
+  console.log(items);
   return (
     <Layout>
       <div className={styles.cajaCentral}>
@@ -44,8 +45,8 @@ export default function Page() {
                         />
                       </a>
                     </Link>
-                    <br></br>Title: {item["title"]}
-                    <br></br>Date: {fecha(item["created_at"]["date"])}
+                    <br></br><b>{item["title"]}</b>
+                    <br></br><b>{fecha(item["pubDate"])}</b>
                     <button className={styles.buttonNew}>
                       <Link href={item["url"]}>
                         <a target="_blank">See More </a>

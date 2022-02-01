@@ -13,7 +13,6 @@ export default function Header() {
       .then((json) => setItems(json))
       .catch((error) => alert("Error" + error.message));
   }, []);
-  console.log(items);
   const weather = {
     main: items.main,
     icon: items.icon,

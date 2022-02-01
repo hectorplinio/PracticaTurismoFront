@@ -44,7 +44,7 @@ export default function PageRestaurants() {
                     </Link>
                     <br></br>Title: {item["title"]}
                     <br></br>Description: {item["description"]}
-                    <br></br>Date Updated: {fecha(item["updated_at"]["date"])}
+                    <br></br>Date Updated: {fecha(item["pubDate"])}
                   </li>
                 </ul>
               </div>

@@ -1,86 +1,97 @@
-.cajaCentral{
-    background-image: url('../public/cuenca_2.jpeg');
-    background-repeat: no-repeat;
-    background-position: center center !important;
-    background-attachment: scroll !important;
-    -webkit-background-size: cover !important;
-    display: flex;
-    flex-direction: column;
-    height: 60em;
-    overflow-x: hidden;
-    margin: 0 auto;
-    overflow-y: auto;
-    padding-bottom: 5em;
+.cajaCentral {
+  background-image: url("../public/cuenca_2.jpeg");
+  background-repeat: no-repeat;
+  background-position: center center !important;
+  background-attachment: scroll !important;
+  -webkit-background-size: cover !important;
+  display: flex;
+  flex-direction: column;
+  height: 70em;
+  overflow-x: hidden;
+  margin: 0 auto;
+  overflow-y: auto;
+  padding-bottom: 5em;
 }
-.cajaSuperior{
-    width: 55%;
-    margin: 4em auto;
-    height: 5em;
-    text-align: center;
-    align-items: center;
-    padding-top: 1.5em;
-    font-family: Helvetica;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 20px;
-    line-height: 20px;
-    color: cornsilk;
+.cajaSuperior {
+  width: 55%;
+  margin: 4em auto;
+  height: 5em;
+  text-align: center;
+  align-items: center;
+  padding-top: 1.5em;
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 20px;
+  color: cornsilk;
 }
-.cajaInferior{
-    background-color: rgb(250, 235, 216,0.3);
-    color: antiquewhite;
-    width: 40%;
-    margin: 0 auto;
-    height: 5em;
-    text-align: center;
-    align-items: center;
-    padding-top: 2em;
-    border-radius: 2em;
-    margin-bottom: 3em;
+.cajaInferior {
+  background-color: rgb(250, 235, 216, 0.3);
+  color: antiquewhite;
+  width: 40%;
+  margin: 0 auto;
+  height: 5em;
+  text-align: center;
+  align-items: center;
+  padding-top: 2em;
+  border-radius: 2em;
+  margin-bottom: 3em;
 }
-.cajaTriple{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 50px;
+.cajaTriple {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 50px;
 }
-.cajaRestaurant{
-    background-color: antiquewhite;
-    width: 18em;
-    margin: 0 auto;
-    height: 100%;
-    border-radius: 1em;
+.cajaRestaurant {
+  background-color: antiquewhite;
+  width: 18em;
+  margin: 0 auto;
+  height: 100%;
+  border-radius: 1em;
 }
-.imagenes{
-    width: 18em;
-    height: 11em;
-    border-top-right-radius: 1em;
-    border-top-left-radius: 1em; 
+.imagenes {
+  width: 18em;
+  height: 11em;
+  border-top-right-radius: 1em;
+  border-top-left-radius: 1em;
 }
-.cuadro{
-    margin: 1em;
+.cuadro {
+  margin: 1em;
 }
-.buttonView{
-    background-color: burlywood;
-    font-size: 26px;
-    padding: 0.152em;
-    margin: 1em 4em 3em;
-    border-radius: 0.2em;
+.buttonView {
+  background-color: burlywood;
+  font-size: 26px;
+  padding: 0.152em;
+  margin: 1em 4em 3em;
+  border-radius: 0.2em;
 }
-.iconoYoutube{
-    width: 3em;
+.iconoYoutube {
+  width: 3em;
 }
-.buttonView{
-    background-color: #ddc9b8;
-    width: 7em;
-    border-radius: 8px;
-    height: 2em;
-   margin: 0em 0em 3em 5em;
+.buttonView {
+  background-color: #ddc9b8;
+  width: 7em;
+  border-radius: 8px;
+  height: 2em;
+  margin: 0em 0em 3em 5em;
 }
-.buttonNew{
-    background-color: #ddc9b8;
-    width: 7em;
-    border-radius: 8px;
-    height: 2em;
-    margin-left: 4.5em;
-    margin-top: 2em;
+.buttonNew {
+  background-color: #ddc9b8;
+  width: 7em;
+  border-radius: 8px;
+  height: 2em;
+  margin-left: 4.5em;
+  margin-top: 2em;
+}
+.mapa {
+  height: 37em;
+  margin-top: 2em;
+}
+.botonesBusqueda {
+  background-color: #faebd7;
+  margin: 1em;
+  padding: 1em;
+  border-radius: 1em;
+  color: black;
 }
