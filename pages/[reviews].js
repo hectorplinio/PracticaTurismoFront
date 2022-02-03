@@ -1,22 +1,51 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "tailwindcss/tailwind.css";
 import Link from "next/link";
 import styles from "../styles/style.module.css";
 import { useRouter } from "next/router";
 import Layout from "../components/layout";
-import Modal from "../components/modal";
+import Router from "next/router";
+import "reactjs-popup/dist/index.css";
 function fecha(date) {
   return new Date(date).toLocaleString();
 }
 
 export default function useEffectPage() {
   const [showModal, setShowModal] = useState(false);
+  const [email, setEmail] = useState("");
+  const [punctuation, setPunctuation] = useState(0);
+  const [description, setDescription] = useState("");
+  const [rewview, setReview] = useState([]);
+  const inputNewForm = useRef(null);
+  const onButtonClick = () => {
+    inputNewForm.current.focus();
+  };
   const router = useRouter();
   const id = router.query;
   console.log(id);
   const resourceType = id.id;
   const [items, setItems] = useState([]);
+  const submitReview = (event) => {
+    const idRestuarant = router.query.id;
 
+    event.preventDefault();
+    let newReview = {
+      description: description,
+      punctuation: punctuation,
+      email: email,
+      restaurant_id: idRestuarant,
+    };
+
+    fetch("http://turismo:8081/rest/reviewsRestaurant", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newReview),
+      mode: "no-cors",
+    });
+    Router.reload(window.location.pathname);
+  };
   useEffect(() => {
     fetch(`http://turismo:8081/rest/reviewsRestaurant/${resourceType}`)
       .then((response) => response.json())
@@ -27,13 +56,70 @@ export default function useEffectPage() {
     <Layout>
       <div className={styles.cajaCentral}>
         <div className={styles.cajaSuperior}>
-          <h1>Reviews</h1>
-          <button onClick={() => setShowModal(true)}>Open Modal</button>
-          <Modal onClose={() => setShowModal(false)} show={showModal}>
-            Hello from the modal!
-          </Modal>
+          <h1>
+            Reviews{" "}
+            <button onClick={onButtonClick} className={styles.buttonNew}>
+              New Review
+            </button>{" "}
+          </h1>
         </div>
         <div className={styles.cajaTriple}>
+        <div className={styles.cajaRestaurant}>
+            <img
+              src="https://www.edesk.com/wp-content/uploads/2021/04/amazon-review-tool.png"
+              className={styles.imagenes}
+            ></img>
+            <form className={styles.formulario} onSubmit={submitReview}>
+              <label>
+                Email:
+                <input
+                  name="email"
+                  ref={inputNewForm}
+                  id="email"
+                  placeholder="Email"
+                  className={styles.input}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+
+              <label id="description">
+                Review:{" "}
+                <textarea
+                  placeholder="Introduce tu opinion del restaurante..."
+                  cols={20}
+                  rows={2}
+                  className={styles.input}
+                  onChange={(e) => setDescription(e.target.value)}
+                ></textarea>
+              </label>
+
+              <label>
+                Puntuacion{" "}
+                <select
+                  name="punctuation"
+                  id="punctuation"
+                  className={styles.input}
+                  onChange={(e) => setPunctuation(e.target.value)}
+                >
+                  <option value={0}>0</option>
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                  <option value={3}>3</option>
+                  <option value={4}>4</option>
+                  <option value={5}>5</option>
+                  <option value={6}>6</option>
+                  <option value={7}>7</option>
+                  <option value={8}>8</option>
+                  <option value={9}>9</option>
+                  <option value={10}>10</option>
+                </select>
+              </label>
+
+              <button value="Enviar" className={styles.buttonNew}>
+                Send
+              </button>
+            </form>
+          </div>
           {items.map((item, index) => {
             console.log(item);
             return (

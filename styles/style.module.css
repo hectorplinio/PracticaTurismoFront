@@ -95,3 +95,15 @@
   border-radius: 1em;
   color: black;
 }
+.formulario{
+  display: flex;
+  flex-direction: column;
+}
+.input{
+  opacity: 47%;
+  border-radius: 1em;
+  text-align: center;
+  align-items: center;
+  margin: 0.25em 1em;
+
+}

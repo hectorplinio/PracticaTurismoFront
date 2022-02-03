@@ -20,9 +20,7 @@ export default function Map({ locations }) {
     >
       {locations.map((location) => (
         <div key={location.id}>
-          {console.log(location)}
           <Marker
-
             latitude={location.center[1]}
             longitude={location.center[0]}
             offsetLeft={-20}
@@ -32,24 +30,13 @@ export default function Map({ locations }) {
               onClick={() => {
                 setSelectedLocation(location);
               }}
-            >
+            > 
               <span role="img" aria-label="push-pin">
+              
                 📍
               </span>
             </a>
           </Marker>
-          {/* {selectLocation.id === location.id ? (
-            <Popup
-              onClose={() => setSelectedLocation({})}
-              closeOnClick={true}
-              latitude={location.center[1]}
-              longitude={location.center[0]}
-            >
-              {location.place_name}
-            </Popup>
-          ) : (
-            false
-          )} */}
         </div>
       ))}
     </ReactMapGL>

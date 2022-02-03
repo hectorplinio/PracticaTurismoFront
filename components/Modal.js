@@ -3,8 +3,7 @@ import ReactDOM from "react-dom";
 import styled from "styled-components";
 
 const Modal = ({ show, onClose, children, title }) => {
-    const [isBrowser, setIsBrowser] = useState(false);
-
+  const [isBrowser, setIsBrowser] = useState(false);
   useEffect(() => {
     setIsBrowser(true);
   }, []);
@@ -15,16 +14,16 @@ const Modal = ({ show, onClose, children, title }) => {
   };
 
   const modalContent = show ? (
-    <div className={styles.overlay}>
-        <div className={styles.modal}>
-            <div className={styles.header}>
-                <a href="#" onClick={handleCloseClick}>
-                    <button className="btn">Close</button>
-                </a>
-            </div>
-        </div>
-    </div>
-  ) : null;
+    // <div className={styled.overlay}>
+    //     <div className={styled.modal}>
+    //         <div className={styled.header}>
+    <a href="#" onClick={handleCloseClick}>
+      <button className="btn">Close</button>
+    </a>
+  ) : //         </div>
+  //     </div>
+  // </div>
+  null;
 
   if (isBrowser) {
     return ReactDOM.createPortal(
@@ -62,6 +61,6 @@ const Modal = ({ show, onClose, children, title }) => {
     align-items: center;
     background-color: rgba(0, 0, 0, 0.5);
   `;
-}
+};
 
 export default Modal;
