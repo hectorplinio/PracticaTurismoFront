@@ -3,7 +3,7 @@ import styles from "../styles/style.module.css"
 import React, { useEffect, useState } from 'react';
 import Link from "next/link"
 import { useRouter } from 'next/router';
-function fecha(date){
+function date(date){
     return new Date(date).toLocaleString();
   }
 
@@ -20,11 +20,11 @@ export default function PageRestaurants () {
   
   return (
     <Layout>
-      <div className={styles.cajaCentral}>
-        <div className={styles.cajaSuperior}>
+      <div className={styles.boxCenter}>
+        <div className={styles.boxUp}>
           <h1>Gas Stations</h1>
         </div>
-        <div className={styles.cajaTriple}>
+        <div className={styles.boxTriple}>
             {items.map((item, index) => {
                 console.log(item);
                 if (item['label'] == "REPSOL"){
@@ -44,16 +44,16 @@ export default function PageRestaurants () {
                 }
                 return (
                     
-                  <div className={styles.cajaRestaurant}>
+                  <div className={styles.boxRestaurant}>
                     <ul key={index}>
-                    <li  className={styles.cuadro}>
-                    <img src={(item['image_url'])} className={styles.imagenes}></img>
+                    <li  className={styles.frame}>
+                    <img src={(item['image_url'])} className={styles.image}></img>
                     <br></br>Name: {(item['label'])}
                     <br></br>Address: {item['address']}
                     <br></br>Latitude: {(item['latitude'])}
                     {/* {item['reviewAverage']} */}
                     <br></br>Longitude: {item['longitude']} 
-                    <br></br>Date Created: {fecha(item['created_at']['date'])}</li>
+                    <br></br>Date Created: {date(item['created_at']['date'])}</li>
                     {/* <Link href={{ pathname:'/reviews',query: { id: item['id']}}} >
                       <a className={styles.buttonView}>View  </a>
                     </Link> */}

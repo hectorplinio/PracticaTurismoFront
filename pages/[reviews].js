@@ -6,12 +6,11 @@ import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import Router from "next/router";
 import "reactjs-popup/dist/index.css";
-function fecha(date) {
+function date(date) {
   return new Date(date).toLocaleString();
 }
 
 export default function useEffectPage() {
-  const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
   const [punctuation, setPunctuation] = useState(0);
   const [description, setDescription] = useState("");
@@ -54,8 +53,8 @@ export default function useEffectPage() {
 
   return (
     <Layout>
-      <div className={styles.cajaCentral}>
-        <div className={styles.cajaSuperior}>
+      <div className={styles.boxCenter}>
+        <div className={styles.boxUp}>
           <h1>
             Reviews{" "}
             <button onClick={onButtonClick} className={styles.buttonNew}>
@@ -63,13 +62,13 @@ export default function useEffectPage() {
             </button>{" "}
           </h1>
         </div>
-        <div className={styles.cajaTriple}>
-        <div className={styles.cajaRestaurant}>
+        <div className={styles.boxTriple}>
+        <div className={styles.boxRestaurant}>
             <img
               src="https://www.edesk.com/wp-content/uploads/2021/04/amazon-review-tool.png"
-              className={styles.imagenes}
+              className={styles.image}
             ></img>
-            <form className={styles.formulario} onSubmit={submitReview}>
+            <form className={styles.form} onSubmit={submitReview}>
               <label>
                 Email:
                 <input
@@ -123,18 +122,18 @@ export default function useEffectPage() {
           {items.map((item, index) => {
             console.log(item);
             return (
-              <div className={styles.cajaRestaurant}>
+              <div className={styles.boxRestaurant}>
                 <ul key={index}>
                   <li className="cuadro">
                     <img
                       src="https://www.edesk.com/wp-content/uploads/2021/04/amazon-review-tool.png"
-                      className={styles.imagenes}
+                      className={styles.image}
                     ></img>
                     <br></br>Review nº: {item["id"]}
                     <br></br>Descripcion: {item["description"]}
                     <br></br>Puntuacion: {item["punctuation"]}
                     <br></br>Email: {item["email"]}
-                    <br></br>Date Created: {fecha(item["created_at"]["date"])}{" "}
+                    <br></br>Date Created: {date(item["created_at"]["date"])}{" "}
                   </li>
                 </ul>
               </div>

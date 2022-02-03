@@ -1,5 +1,5 @@
 
-.cabecera {
+.header {
     width: 100%;
     height: 570px;
     left: 0px;
@@ -27,7 +27,7 @@
     border-radius: 1.5em;
     box-shadow: 60px -16px rgb(206, 174, 142);
 }
-.listaNav li{
+.listNav li{
     display:inline;
     padding-left:20px;
     padding-right:20px;
@@ -38,14 +38,14 @@
     line-height: 20px;
     color: #161F21;
 }
-.titulo{
+.title{
     color: white;
     position: absolute;
     font-family: Helvetica;
     margin-top: 6em;
     font-size: 79px;
 }
-.bajo{
+.down{
     width: 100%;
     height: 570px;
     left: 0px;
@@ -64,7 +64,7 @@
     padding: 2em;
     margin-top: 7em;
 }
-.listaInfo li{
+.liInfo li{
     display:inline;
     padding-left:20px;
     padding-right:20px;
@@ -76,7 +76,7 @@
     color: #161F21;
     padding: 3em;
 }
-.navegatorIconos{
+.navegatorIcons{
     display: flex;
     margin: 0 auto;
     justify-content: center;
@@ -85,11 +85,11 @@
     padding: 2em;
     margin-top: 7em;
 }
-.listaIconos {
+.listaIcons {
     display: flex;
     margin: 3em;
 }
-.iconos{
+.icons{
     display: inline;
     width: 6em;
     padding: 0.5em;
@@ -98,7 +98,7 @@
     margin-left: 7em;
     margin-top: -9em;
 }
-.politica{
+.policy{
     align-items: center;
     text-align: center;
     margin-top: -5em;
@@ -113,11 +113,11 @@
     margin-left: 3em;
 
 }
-.iconoWeather{
+.iconWeather{
     width: 2em;
     height: 2em;
 }
-.ventanaClima{
+.windowMain{
     float: right;
     margin-top: 27em;
     margin-right: 2em;
@@ -127,7 +127,7 @@
     align-items: center;
     border-radius: 7px;
 }
-.tituloCelsius{
+.titleCelsius{
     font-size: 27px;
     font-family: monospace;
 }

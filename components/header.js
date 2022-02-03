@@ -1,11 +1,14 @@
 import Link from "next/link";
 import styles from "./style.module.css";
-import Image from "next/image";
-
 import React, { useEffect, useState } from "react";
 
 export default function Header() {
+  const navegator = ["", "restaurants","gasStations", "videos", "map"]
   const [items, setItems] = useState([]);
+  const loading = {
+    loading: () => "Loading...",
+    ssr: false,
+  };
 
   useEffect(() => {
     fetch("http://turismo:8081/rest/weather")
@@ -16,14 +19,21 @@ export default function Header() {
   const weather = {
     main: items.main,
     icon: items.icon,
-    celsius : items.celsius,
+    celsius: items.celsius,
   };
 
   return (
     <header>
-      <div className={styles.cabecera}>
+      <div className={styles.header}>
         <nav className={styles.navegator}>
-          <ul className={styles.listaNav}>
+          <ul className={styles.listNav}>
+          {navegator.map((nav, index) => {
+                <li className={styles.liNav}>
+                <Link href={'/'+nav}>
+                  <a>Home</a>
+                </Link>
+              </li>
+              })}
             <li className={styles.liNav}>
               <Link href="/">
                 <a>Home</a>
@@ -51,8 +61,8 @@ export default function Header() {
             </li>
           </ul>
         </nav>
-        <div className={styles.ventanaClima}>
-          <h1 className={styles.tituloCelsius}>{weather["celsius"]} C</h1> 
+        <div className={styles.windowMain}>
+          <h1 className={styles.titleCelsius}>{weather["celsius"]} C</h1>
           <div className={{ width: "30%", height: "30%" }}>
             <img
               src={
@@ -65,7 +75,7 @@ export default function Header() {
           </div>
         </div>
 
-        <h1 className={styles.titulo}>Welcome to Cuenca</h1>
+        <h1 className={styles.title}>Welcome to Cuenca</h1>
       </div>
     </header>
   );

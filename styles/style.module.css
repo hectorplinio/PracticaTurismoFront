@@ -1,4 +1,4 @@
-.cajaCentral {
+.boxCenter {
   background-image: url("../public/cuenca_2.jpeg");
   background-repeat: no-repeat;
   background-position: center center !important;
@@ -12,7 +12,7 @@
   overflow-y: auto;
   padding-bottom: 5em;
 }
-.cajaSuperior {
+.boxUp {
   width: 55%;
   margin: 4em auto;
   height: 5em;
@@ -26,7 +26,7 @@
   line-height: 20px;
   color: cornsilk;
 }
-.cajaInferior {
+.boxDown {
   background-color: rgb(250, 235, 216, 0.3);
   color: antiquewhite;
   width: 40%;
@@ -38,25 +38,25 @@
   border-radius: 2em;
   margin-bottom: 3em;
 }
-.cajaTriple {
+.boxTriple {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 50px;
 }
-.cajaRestaurant {
+.boxRestaurant {
   background-color: antiquewhite;
   width: 18em;
   margin: 0 auto;
   height: 100%;
   border-radius: 1em;
 }
-.imagenes {
+.image {
   width: 18em;
   height: 11em;
   border-top-right-radius: 1em;
   border-top-left-radius: 1em;
 }
-.cuadro {
+.frame {
   margin: 1em;
 }
 .buttonView {
@@ -84,18 +84,18 @@
   margin-left: 4.5em;
   margin-top: 2em;
 }
-.mapa {
+.map {
   height: 37em;
   margin-top: 2em;
 }
-.botonesBusqueda {
+.buttonSearch {
   background-color: #faebd7;
   margin: 1em;
   padding: 1em;
   border-radius: 1em;
   color: black;
 }
-.formulario{
+.form{
   display: flex;
   flex-direction: column;
 }

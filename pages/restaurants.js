@@ -6,8 +6,8 @@ import { useRouter } from "next/router";
 
 function stars($avg) {
   var $resta = 0;
-  var $fila = "";
-  var $fila2 = "";
+  var $file = "";
+  var $file2 = "";
   const router = useRouter();
   const { id } = router.query;
 
@@ -15,12 +15,12 @@ function stars($avg) {
   $avg = parseInt($avg);
   $resta = 10 - $avg;
   for (var i = $avg; i > 0; i--) {
-    $fila += "★";
+    $file += "★";
   }
   for (var i = $resta; i > 0; i--) {
-    $fila2 += "✩";
+    $file2 += "✩";
   }
-  return $fila + $fila2;
+  return $file + $file2;
 }
 
 export default function PageRestaurants() {
@@ -35,19 +35,19 @@ export default function PageRestaurants() {
 
   return (
     <Layout>
-      <div className={styles.cajaCentral}>
-        <div className={styles.cajaSuperior}>
+      <div className={styles.boxCenter}>
+        <div className={styles.boxUp}>
           <h1>Restaurants</h1>
         </div>
-        <div className={styles.cajaTriple}>
+        <div className={styles.boxTriple}>
           {items.map((item, index) => {
             return (
-              <div className={styles.cajaRestaurant}>
+              <div className={styles.boxRestaurant}>
                 <ul key={index}>
-                  <li className={styles.cuadro}>
+                  <li className={styles.frame}>
                     <img
                       src={item["image_url"]}
-                      className={styles.imagenes}
+                      className={styles.image}
                     ></img>
                     <br></br>Name: {item["name"]}
                     <br></br>Address: {item["address"]}

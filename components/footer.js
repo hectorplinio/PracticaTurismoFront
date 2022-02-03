@@ -1,6 +1,5 @@
 import Link from "next/link"
 import Image from "next/image"
-import packageJSON from "../package.json"
 import instagram from '../public/Instagram.png'
 import facebook from '../public/facebook.png'
 import twitter from '../public/twitter.png'
@@ -12,9 +11,9 @@ import styles from "./style.module.css"
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-    <div className={styles.bajo}>
+    <div className={styles.down}>
       <nav className={styles.navegatorFooter}>
-        <ul className={styles.listaInfo}>
+        <ul className={styles.liInfo}>
             <li className={styles.info}>
                 <Link href="">
                     <a>About</a>
@@ -37,30 +36,30 @@ export default function Footer() {
             </li>
         </ul>
       </nav>
-      <nav className={styles.navegatorIconos}>
-      <ul className={styles.listaIconos}>
-        <li className={styles.iconos}>
+      <nav className={styles.navegatorIcons}>
+      <ul className={styles.listaIcons}>
+        <li className={styles.icons}>
             <Link href="https://www.instagram.com/turismo_aytocuenca/">
                 <Image 
                     src={instagram}
                 />
             </Link>
         </li>
-        <li className={styles.iconos}>
+        <li className={styles.icons}>
             <Link href="https://www.facebook.com/ayuntamientodecuenca/">
                 <Image 
                     src={facebook}
                 />
             </Link>        
         </li>
-        <li className={styles.iconos}>
+        <li className={styles.icons}>
             <Link href="https://twitter.com/aytocuenca?lang=es">
                 <Image 
                     src={twitter}
                 />
             </Link>  
         </li>
-        <li className={styles.iconos}>
+        <li className={styles.icons}>
             <Link href="https://www.youtube.com/channel/UCNnoh0F1FDnJhbHaxxv8VWg">
                 <Image 
                     src={youtube}
@@ -69,7 +68,7 @@ export default function Footer() {
         </li> 
       </ul>
     </nav>
-        <div className={styles.politica}>
+        <div className={styles.policy}>
             <p>Copyright © 2022 Hector Plinio Productions. All Rights Reserved.</p>
         </div>
     </div>
