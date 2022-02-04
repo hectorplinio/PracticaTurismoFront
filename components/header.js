@@ -21,6 +21,8 @@ export default function Header() {
     icon: items.icon,
     celsius: items.celsius,
   };
+  const urlWeather =
+    "http://openweathermap.org/img/wn/" + weather.icon + "@2x.png";
 
   return (
     <header>
@@ -53,14 +55,7 @@ export default function Header() {
         <div className={styles.windowMain}>
           <h1 className={styles.titleCelsius}>{weather["celsius"]} C</h1>
           <div className={{ width: "30%", height: "30%" }}>
-            <img
-              src={
-                "http://openweathermap.org/img/wn/" +
-                weather["icon"] +
-                "@2x.png"
-              }
-              layout="fill"
-            />
+            <img src={urlWeather} layout="fill" />
           </div>
         </div>
 
