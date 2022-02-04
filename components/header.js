@@ -3,7 +3,7 @@ import styles from "./style.module.css";
 import React, { useEffect, useState } from "react";
 
 export default function Header() {
-  const navegator = ["", "restaurants","gasStations", "videos", "map"]
+  const navegator = ["Home", "Restaurants", "GasStations", "Videos", "Map"];
   const [items, setItems] = useState([]);
   const loading = {
     loading: () => "Loading...",
@@ -27,38 +27,27 @@ export default function Header() {
       <div className={styles.header}>
         <nav className={styles.navegator}>
           <ul className={styles.listNav}>
-          {navegator.map((nav, index) => {
+            {navegator.map((nav) => {
+              return (
                 <li className={styles.liNav}>
-                <Link href={'/'+nav}>
-                  <a>Home</a>
-                </Link>
-              </li>
-              })}
-            <li className={styles.liNav}>
-              <Link href="/">
-                <a>Home</a>
-              </Link>
-            </li>
-            <li className={styles.liNav}>
-              <Link href="/restaurants">
-                <a>Restaurant</a>
-              </Link>
-            </li>
-            <li className={styles.liNav}>
-              <Link href="/gasStations">
-                <a>GasStations</a>
-              </Link>
-            </li>
-            <li className={styles.liNav}>
-              <Link href="/videos">
-                <a>Videos</a>
-              </Link>
-            </li>
-            <li className={styles.liNav}>
-              <Link href="/map">
-                <a>Map</a>
-              </Link>
-            </li>
+                  {(() => {
+                    if (nav == "Home") {
+                      return (
+                        <Link href={"/"}>
+                          <a>{nav}</a>
+                        </Link>
+                      );
+                    } else {
+                      return (
+                        <Link href={"/" + nav}>
+                          <a>{nav}</a>
+                        </Link>
+                      );
+                    }
+                  })()}
+                </li>
+              );
+            })}
           </ul>
         </nav>
         <div className={styles.windowMain}>

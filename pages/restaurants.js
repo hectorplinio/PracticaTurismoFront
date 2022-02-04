@@ -11,7 +11,6 @@ function stars($avg) {
   const router = useRouter();
   const { id } = router.query;
 
-  console.log($avg);
   $avg = parseInt($avg);
   $resta = 10 - $avg;
   for (var i = $avg; i > 0; i--) {
