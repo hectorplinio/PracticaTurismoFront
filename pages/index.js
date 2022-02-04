@@ -32,7 +32,6 @@ export default function Page() {
 
         <div className={styles.boxTriple}>
           {items.map((item, index) => {
-            console.log(item);
             return (
               <div className={styles.boxRestaurant}>
                 <ul key={index}>

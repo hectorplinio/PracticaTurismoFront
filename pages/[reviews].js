@@ -21,7 +21,6 @@ export default function useEffectPage() {
   };
   const router = useRouter();
   const id = router.query;
-  console.log(id);
   const resourceType = id.id;
   const [items, setItems] = useState([]);
   const submitReview = (event) => {
@@ -120,7 +119,6 @@ export default function useEffectPage() {
             </form>
           </div>
           {items.map((item, index) => {
-            console.log(item);
             return (
               <div className={styles.boxRestaurant}>
                 <ul key={index}>

@@ -26,7 +26,6 @@ export default function PageRestaurants() {
         </div>
         <div className={styles.boxTriple}>
           {items.map((item, index) => {
-            console.log(IMAGES_GASSTATION);
             let image =
               "https://cdn.pixabay.com/photo/2013/07/13/12/44/fuel-160231_640.png";
             if (
@@ -39,7 +38,6 @@ export default function PageRestaurants() {
             ) {
               image = IMAGES_GASSTATION[item["label"]];
             }
-            console.log(item);
             return (
               <div className={styles.boxRestaurant}>
                 <ul key={index}>
