@@ -1,48 +1,52 @@
-import Link from "next/link"
-import Image from "next/image"
-import packageJSON from "../package.json"
-import instagram from '../public/Instagram.png'
-import facebook from '../public/facebook.png'
-import twitter from '../public/twitter.png'
-import youtube from '../public/youtube.png'
-import styles from "./style.module.css"
-
-
+import Link from "next/link";
+import Image from "next/image";
+import instagram from "../public/Instagram.png";
+import facebook from "../public/facebook.png";
+import twitter from "../public/twitter.png";
+import youtube from "../public/youtube.png";
+import styles from "./style.module.css";
+import RRSS_CUENCA from "./constants";
 
 export default function Footer() {
+  const navegatorFooter = [instagram, facebook, twitter, youtube];
+  const navegatorPolicy = ["About", "Terms", "Privacy Policy", "FAQ"];
+
   return (
     <footer className={styles.footer}>
-      <ul className={styles.listaIconos}>
-      <li className={styles.iconos}>
-            <Link href="https://www.instagram.com/turismo_aytocuenca/">
-                <Image 
-                    src={instagram}
-                />
-            </Link>
-        </li>
-        <li className={styles.iconos}>
-            <Link href="https://www.facebook.com/ayuntamientodecuenca/">
-                <Image 
-                    src={facebook}
-                />
-            </Link>        
-        </li>
-        <li className={styles.iconos}>
-            <Link href="https://twitter.com/aytocuenca?lang=es">
-                <Image 
-                    src={twitter}
-                />
-            </Link>  
-        </li>
-        <li className={styles.iconos}>
-            <Link href="https://www.youtube.com/channel/UCNnoh0F1FDnJhbHaxxv8VWg">
-                <Image 
-                    src={youtube}
-                />
-            </Link>  
-        </li>
-        
-      </ul>
+      <div className={styles.down}>
+        <nav className={styles.navegatorFooter}>
+          <ul className={styles.liInfo}>
+            {navegatorPolicy.map((nav) => {
+              return (
+                <li className={styles.info}>
+                  <Link href="">
+                    <a>{nav}</a>
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <nav className={styles.navegatorIcons}>
+          <ul className={styles.listaIcons}>
+            {navegatorFooter.map((nav) => {
+              return (
+                <li className={styles.icons}>
+                
+                  <Link href={{pathname:"/"}}>
+                    <Image src={nav} />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <div className={styles.policy}>
+          <p>
+            Copyright © 2022 Hector Plinio Productions. All Rights Reserved.
+          </p>
+        </div>
+      </div>
     </footer>
-  )
+  );
 }
