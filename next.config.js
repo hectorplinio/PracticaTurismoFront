@@ -7,4 +7,7 @@ module.exports = {
       'i4.ytimg.com'
     ],
   },
+  flags: {
+    SSR: false,
+  }
 }

@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import Layout from "../components/layout";
 import Router from "next/router";
 import "reactjs-popup/dist/index.css";
+import axios from "axios";
 function date(date) {
   return new Date(date).toLocaleString();
 }
@@ -23,6 +24,22 @@ export default function useEffectPage() {
   const id = router.query;
   const resourceType = id.id;
   const [items, setItems] = useState([]);
+  const deleteReview =  (id) => {
+    let bodyArray = {
+      id: id,
+    };
+     fetch("http://turismo:8081/rest/reviewsRestaurant", {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(bodyArray),
+      
+
+    })
+    .catch(err => console.log(err));
+    Router.reload(window.location.pathname);
+  };
   const submitReview = (event) => {
     const idRestuarant = router.query.id;
 
@@ -40,7 +57,6 @@ export default function useEffectPage() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newReview),
-      mode: "no-cors",
     });
     Router.reload(window.location.pathname);
   };
@@ -62,7 +78,7 @@ export default function useEffectPage() {
           </h1>
         </div>
         <div className={styles.boxTriple}>
-        <div className={styles.boxRestaurant}>
+          <div className={styles.boxRestaurant}>
             <img
               src="https://www.edesk.com/wp-content/uploads/2021/04/amazon-review-tool.png"
               className={styles.image}
@@ -134,6 +150,9 @@ export default function useEffectPage() {
                     <br></br>Date Created: {date(item["created_at"]["date"])}{" "}
                   </li>
                 </ul>
+                <a onClick={() => deleteReview(item["id"])}>
+                  <button className={styles.buttonDelete}>🗑</button>
+                </a>
               </div>
             );
           })}

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-const Map = ({ locations }) => {
+const Map = ({ locations = [] }) => {
   // UseState hook
   const [selectedLocation, setSelectedLocation] = useState({});
   const [viewport, setViewport] = useState({
@@ -41,5 +41,6 @@ const Map = ({ locations }) => {
       ))}
     </ReactMapGL>
   );
-}
+};
+
 export default Map

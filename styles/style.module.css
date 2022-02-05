@@ -107,3 +107,8 @@
   margin: 0.25em 1em;
 
 }
+.buttonDelete{
+  background-color: red;
+    width: 3em;
+    border-bottom-left-radius: 1em;
+}

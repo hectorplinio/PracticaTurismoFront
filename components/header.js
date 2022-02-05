@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./style.module.css";
 import React, { useEffect, useState } from "react";
+import Router from "next/router";
 
 export default function Header() {
   const navegator = ["Home", "Restaurants", "GasStations", "Videos", "Map"];
@@ -17,7 +18,6 @@ export default function Header() {
       .catch((error) => alert("Error" + error.message));
   }, []);
   const weather = {
-    main: items.main,
     icon: items.icon,
     celsius: items.celsius,
   };
