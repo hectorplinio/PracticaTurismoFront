@@ -6,6 +6,12 @@ import React, { useEffect, useState } from "react";
 function date(date) {
   return new Date(date).toLocaleString();
 }
+function removeHttp(url) {
+  debugger;
+  url.replace(/^https?:\/\//, '');
+  console.log(url);
+  return url
+}
 export default function Page() {
   const [items, setItems] = useState([]);
   useEffect(() => {
@@ -34,9 +40,9 @@ export default function Page() {
           {items.map((item, index) => {
             return (
               <div className={styles.boxRestaurant}>
-                <ul key={index}>
+                <ul>
                   <li className={styles.frame}>
-                    <Link href={item["url"]}>
+                    <Link href={removeHttp(item["url"])}  key={index} prefetch={false}>
                       <a target="_blank">
                         <img
                           src={item["img_url"]}
@@ -48,7 +54,7 @@ export default function Page() {
                     <br></br><b>{item["title"]}</b>
                     <br></br><b>{date(item["pubDate"])}</b>
                     <button className={styles.buttonNew}>
-                      <Link href={item["url"]}>
+                      <Link href={item["url"]} key={index} prefetch={false}>
                         <a target="_blank">See More </a>
                       </Link>
                     </button>
