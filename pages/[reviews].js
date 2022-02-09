@@ -1,80 +1,78 @@
-import React, { useEffect, useState, useRef } from "react";
-import "tailwindcss/tailwind.css";
-import Link from "next/link";
-import styles from "../styles/style.module.css";
-import { useRouter } from "next/router";
-import Layout from "../components/layout";
-import Router from "next/router";
-import "reactjs-popup/dist/index.css";
-import axios from "axios";
-function date(date) {
-  return new Date(date).toLocaleString();
+import React, { useEffect, useState, useRef } from 'react'
+import 'tailwindcss/tailwind.css'
+import Link from 'next/link'
+import styles from '../styles/style.module.css'
+import Router, { useRouter } from 'next/router'
+import Layout from '../components/layout'
+import 'reactjs-popup/dist/index.css'
+import axios from 'axios'
+function date (date) {
+  return new Date(date).toLocaleString()
 }
 
-export default function useEffectPage() {
-  const [email, setEmail] = useState("");
-  const [punctuation, setPunctuation] = useState(0);
-  const [description, setDescription] = useState("");
-  const [rewview, setReview] = useState([]);
-  const inputNewForm = useRef(null);
+export default function useEffectPage () {
+  const [email, setEmail] = useState('')
+  const [punctuation, setPunctuation] = useState(0)
+  const [description, setDescription] = useState('')
+  const [rewview, setReview] = useState([])
+  const inputNewForm = useRef(null)
   const onButtonClick = () => {
-    inputNewForm.current.focus();
-  };
-  const router = useRouter();
-  const id = router.query;
-  const resourceType = id.id;
-  const [items, setItems] = useState([]);
-  const deleteReview =  (id) => {
-    let bodyArray = {
-      id: id,
-    };
-     fetch("http://turismo:8081/rest/reviewsRestaurant", {
-      method: "DELETE",
+    inputNewForm.current.focus()
+  }
+  const router = useRouter()
+  const id = router.query
+  const resourceType = id.id
+  const [items, setItems] = useState([])
+  const deleteReview = (id) => {
+    const bodyArray = {
+      id: id
+    }
+    fetch('http://turismo:8081/rest/reviewsRestaurant', {
+      method: 'DELETE',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(bodyArray),
-      
+      body: JSON.stringify(bodyArray)
 
     })
-    .catch(err => console.log(err));
-    Router.reload(window.location.pathname);
-  };
+      .catch(err => console.log(err))
+    Router.reload(window.location.pathname)
+  }
   const submitReview = (event) => {
-    const idRestuarant = router.query.id;
+    const idRestuarant = router.query.id
 
-    event.preventDefault();
-    let newReview = {
+    event.preventDefault()
+    const newReview = {
       description: description,
       punctuation: punctuation,
       email: email,
-      restaurant_id: idRestuarant,
-    };
+      restaurant_id: idRestuarant
+    }
 
-    fetch("http://turismo:8081/rest/reviewsRestaurant", {
-      method: "POST",
+    fetch('http://turismo:8081/rest/reviewsRestaurant', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newReview),
-    });
-    Router.reload(window.location.pathname);
-  };
+      body: JSON.stringify(newReview)
+    })
+    Router.reload(window.location.pathname)
+  }
   useEffect(() => {
     fetch(`http://turismo:8081/rest/reviewsRestaurant/${resourceType}`)
       .then((response) => response.json())
-      .then((json) => setItems(json));
-  }, [resourceType]);
+      .then((json) => setItems(json))
+  }, [resourceType])
 
   return (
     <Layout>
       <div className={styles.boxCenter}>
         <div className={styles.boxUp}>
           <h1>
-            Reviews{" "}
+            Reviews{' '}
             <button onClick={onButtonClick} className={styles.buttonNew}>
               New Review
-            </button>{" "}
+            </button>{' '}
           </h1>
         </div>
         <div className={styles.boxTriple}>
@@ -97,7 +95,7 @@ export default function useEffectPage() {
               </label>
 
               <label id="description">
-                Review:{" "}
+                Review:{' '}
                 <textarea
                   placeholder="Introduce tu opinion del restaurante..."
                   cols={20}
@@ -108,7 +106,7 @@ export default function useEffectPage() {
               </label>
 
               <label>
-                Puntuacion{" "}
+                Puntuacion{' '}
                 <select
                   name="punctuation"
                   id="punctuation"
@@ -143,21 +141,21 @@ export default function useEffectPage() {
                       src="https://www.edesk.com/wp-content/uploads/2021/04/amazon-review-tool.png"
                       className={styles.image}
                     ></img>
-                    <br></br>Review nº: {item["id"]}
-                    <br></br>Descripcion: {item["description"]}
-                    <br></br>Puntuacion: {item["punctuation"]}
-                    <br></br>Email: {item["email"]}
-                    <br></br>Date Created: {date(item["created_at"]["date"])}{" "}
+                    <br></br>Review nº: {item.id}
+                    <br></br>Descripcion: {item.description}
+                    <br></br>Puntuacion: {item.punctuation}
+                    <br></br>Email: {item.email}
+                    <br></br>Date Created: {date(item.created_at.date)}{' '}
                   </li>
                 </ul>
-                <a onClick={() => deleteReview(item["id"])}>
+                <a onClick={() => deleteReview(item.id)}>
                   <button className={styles.buttonDelete}>🗑</button>
                 </a>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </Layout>
-  );
+  )
 }

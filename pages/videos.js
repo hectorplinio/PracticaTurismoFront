@@ -1,22 +1,21 @@
-import Layout from "../components/layout";
-import styles from "../styles/style.module.css";
-import React, { useEffect, useState } from "react";
-import Link from "next/link";
+import Layout from '../components/layout'
+import styles from '../styles/style.module.css'
+import React, { useEffect, useState } from 'react'
+import Link from 'next/link'
 
-
-function date(date) {
-  return new Date(date).toLocaleString();
+function date (date) {
+  return new Date(date).toLocaleString()
 }
 
-export default function PageRestaurants() {
-  const [items, setItems] = useState([]);
+export default function PageRestaurants () {
+  const [items, setItems] = useState([])
 
   useEffect(() => {
-    fetch("http://turismo:8081/rest/videos")
+    fetch('http://turismo:8081/rest/videos')
       .then((response) => response.json())
       .then((json) => setItems(json))
-      .catch((error) => alert("Error" + error.message));
-  }, []);
+      .catch((error) => alert('Error' + error.message))
+  }, [])
 
   return (
     <Layout>
@@ -30,25 +29,25 @@ export default function PageRestaurants() {
               <div className={styles.boxRestaurant}>
                 <ul key={index}>
                   <li className={styles.frame}>
-                    <Link href={item["url"]}>
+                    <Link href={item.url}>
                       <a target="_blank">
                         <img
-                          src={item["img_url"]}
+                          src={item.img_url}
                           layout="fill"
                           className={styles.image}
                         />
                       </a>
                     </Link>
-                    <br></br>Title: {item["title"]}
-                    <br></br>Description: {item["description"]}
-                    <br></br>Date Updated: {date(item["pubDate"])}
+                    <br></br>Title: {item.title}
+                    <br></br>Description: {item.description}
+                    <br></br>Date Updated: {date(item.pubDate)}
                   </li>
                 </ul>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </Layout>
-  );
+  )
 }

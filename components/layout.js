@@ -1,7 +1,7 @@
-import Header from "../components/header";
-import Footer from "../components/footer";
+import Header from '../components/header'
+import Footer from '../components/footer'
 
-export default function Layout({ children }) {
+export default function Layout ({ children }) {
   return (
     <>
       <head>
@@ -15,5 +15,5 @@ export default function Layout({ children }) {
       <main>{children}</main>
       <Footer />
     </>
-  );
+  )
 }

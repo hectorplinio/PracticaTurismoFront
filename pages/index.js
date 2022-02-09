@@ -1,28 +1,23 @@
-import Layout from "../components/layout";
-import styles from "../styles/style.module.css";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import Layout from '../components/layout'
+import styles from '../styles/style.module.css'
+import Link from 'next/link'
+import React, { useEffect, useState } from 'react'
 
-function date(date) {
-  return new Date(date).toLocaleString();
+function date (date) {
+  return new Date(date).toLocaleString()
 }
-function removeHttp(url) {
-  debugger;
-  url.replace(/^https?:\/\//, '');
-  console.log(url);
-  return url
-}
-export default function Page() {
-  const [items, setItems] = useState([]);
+
+export default function Page () {
+  const [items, setItems] = useState([])
   useEffect(() => {
     const fetchNews = async () => {
-      await  fetch("http://turismo:8081/rest/news")
-      .then(response => response.json())
+      await fetch('http://turismo:8081/rest/news')
+        .then(response => response.json())
         .then(json => setItems(json))
-          .catch(error=>alert("Error"+error.message))
-  };
-  fetchNews();
-}, [setItems]);
+        .catch(error => alert('Error' + error.message))
+    }
+    fetchNews()
+  }, [setItems])
   return (
     <Layout>
       <div className={styles.boxCenter}>
@@ -42,29 +37,29 @@ export default function Page() {
               <div className={styles.boxRestaurant}>
                 <ul>
                   <li className={styles.frame}>
-                    <Link href={removeHttp(item["url"])}  key={index} prefetch={false}>
+                    <Link href={(item.url)} key={index} prefetch={false}>
                       <a target="_blank">
                         <img
-                          src={item["img_url"]}
+                          src={item.img_url}
                           layout="fill"
                           className={styles.image}
                         />
                       </a>
                     </Link>
-                    <br></br><b>{item["title"]}</b>
-                    <br></br><b>{date(item["pubDate"])}</b>
+                    <br></br><b>{item.title}</b>
+                    <br></br><b>{date(item.pubDate)}</b>
                     <button className={styles.buttonNew}>
-                      <Link href={item["url"]} key={index} prefetch={false}>
+                      <Link href={item.url} key={index} prefetch={false}>
                         <a target="_blank">See More </a>
                       </Link>
                     </button>
                   </li>
                 </ul>
               </div>
-            );
+            )
           })}
         </div>
       </div>
     </Layout>
-  );
+  )
 }

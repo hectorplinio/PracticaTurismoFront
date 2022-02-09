@@ -1,15 +1,15 @@
-import Link from "next/link";
-import Image from "next/image";
-import instagram from "../public/Instagram.png";
-import facebook from "../public/facebook.png";
-import twitter from "../public/twitter.png";
-import youtube from "../public/youtube.png";
-import styles from "./style.module.css";
-import RRSS_CUENCA from "./constants";
+import Link from 'next/link'
+import Image from 'next/image'
+import instagram from '../public/Instagram.png'
+import facebook from '../public/facebook.png'
+import twitter from '../public/twitter.png'
+import youtube from '../public/youtube.png'
+import styles from './style.module.css'
+import RRSS_CUENCA from './constants'
 
-export default function Footer() {
-  const navegatorFooter = [instagram, facebook, twitter, youtube];
-  const navegatorPolicy = ["About", "Terms", "Privacy Policy", "FAQ"];
+export default function Footer () {
+  const navegatorFooter = [instagram, facebook, twitter, youtube]
+  const navegatorPolicy = ['About', 'Terms', 'Privacy Policy', 'FAQ']
 
   return (
     <footer className={styles.footer}>
@@ -23,7 +23,7 @@ export default function Footer() {
                     <a>{nav}</a>
                   </Link>
                 </li>
-              );
+              )
             })}
           </ul>
         </nav>
@@ -32,12 +32,12 @@ export default function Footer() {
             {navegatorFooter.map((nav) => {
               return (
                 <li className={styles.icons}>
-                
-                  <Link href={{pathname:"/"}}>
+
+                  <Link href={{ pathname: '/' }}>
                     <Image src={nav} />
                   </Link>
                 </li>
-              );
+              )
             })}
           </ul>
         </nav>
@@ -48,5 +48,5 @@ export default function Footer() {
         </div>
       </div>
     </footer>
-  );
+  )
 }
